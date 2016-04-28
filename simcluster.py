@@ -55,8 +55,7 @@ def simulated_cluster(n_stars=CLUSTER_DEFAULTS['stars'],
             image[y[idx], x[idx]] += fluxes[idx]
 
     # Convolve with a gaussian
-    kernel = Gaussian2DKernel(stddev=1)
-    image = convolve_fft(image, kernel)
+    image = gaussian_filter(image, sigma=1)
 
     # Add noise
     image += np.random.normal(1., 0.001, image.shape)
