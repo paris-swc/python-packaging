@@ -10,8 +10,8 @@ CLUSTER_DEFAULTS = {
 }
 
 
-def simulated_cluster(n_stars=CLUTER_DEFAULTS['stars'],
-                      dimensions=CLUSTER_DEFAULTS['dimension']):
+def simulated_cluster(n_stars=CLUSTER_DEFAULTS['stars'],
+                      dimensions=CLUSTER_DEFAULTS['dimensions']):
     """
     Generates an image simulating a cluster of stars, including
     a Gaussian filter and background noise.
