@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import os
 from setuptools import setup
 
 setup(
@@ -7,6 +8,8 @@ setup(
     author='Your Name Here!',
     author_email='your.name@example.com',  # so people can pester you ;)
     version='0.1',
-    py_modules=['simcluster'],  # Python modules to install (without the .py in the filename)
-    scripts=['simcluster']  # This is the full name of the script "simcluster"; this will be installed to a bin/ directory
+    # Python packages to install (i.e. the directory name)
+    packages=['simcluster'],
+    # This is the full name of the script "simcluster"; this will be installed to a bin/ directory
+    scripts=[os.path.join('scripts', 'simcluster')]
 )
