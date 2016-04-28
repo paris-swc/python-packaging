@@ -21,4 +21,4 @@ install:
 
 # Run test
 script:
-  - (cd simcluster && py.test)
+  - (cd sample-project && py.test)
