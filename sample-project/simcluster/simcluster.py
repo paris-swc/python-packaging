@@ -6,12 +6,14 @@ from scipy.ndimage.filters import gaussian_filter
 
 CLUSTER_DEFAULTS = {
     'stars': 10000,
-    'dimensions': (512, 512)
+    'dimensions': (512, 512),
+    'sigma': 1.
 }
 
 
 def simulated_cluster(n_stars=CLUSTER_DEFAULTS['stars'],
-                      dimensions=CLUSTER_DEFAULTS['dimensions']):
+                      dimensions=CLUSTER_DEFAULTS['dimensions'],
+                      sigma=CLUSTER_DEFAULTS['sigma']):
     """
     Generates an image simulating a cluster of stars, including
     a Gaussian filter and background noise.
@@ -55,7 +57,7 @@ def simulated_cluster(n_stars=CLUSTER_DEFAULTS['stars'],
             image[y[idx], x[idx]] += fluxes[idx]
 
     # Convolve with a gaussian
-    image = gaussian_filter(image, sigma=1)
+    image = gaussian_filter(image, sigma=sigma)
 
     # Add noise
     image += np.random.normal(1., 0.001, image.shape)
