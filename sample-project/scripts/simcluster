@@ -23,6 +23,8 @@ def main(argv):
                         help='the x dimension (in pixels) of the image')
     parser.add_argument('-y', type=int, default=512,
                         help='the y dimension (in pixels) of the image')
+    parser.add_argument('-sigma', type=float, default=1.,
+                        help='the std of the gaussian noise')
 
     # Add an argument to handle the output file.  If we use argparse.FileType it will
     # handle opening a writeable file (and ensuring we can write to it).
@@ -33,7 +35,7 @@ def main(argv):
 
     args = parser.parse_args(argv)
 
-    image = simulated_cluster(n_stars=args.stars, dimensions=(args.x, args.y))
+    image = simulated_cluster(n_stars=args.stars, dimensions=(args.x, args.y), sigma=args.sigma)
 
     # For now the file writing is simple enough that we leave it in the main() function; in the future
     # we may want to break this out into its own routine that takes a filename and the image array
